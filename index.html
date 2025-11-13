@@ -16,7 +16,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #4a4a4a;
-            background-color: #FFF3E0; /* 파스텔 크림 배경 */
+            background-color: #FFF3E0;
         }
 
         /* 네비게이션 바 */
@@ -147,27 +147,39 @@
         .about-content {
             display: flex;
             gap: 3rem;
-            align-items: center;
+            align-items: flex-start;
             flex-wrap: wrap;
         }
 
         .about-image {
-            flex: 1;
-            min-width: 300px;
+            flex: 0 0 auto;
+            text-align: center;
         }
 
         .about-image img {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 20px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 5px solid white;
         }
 
         /* C1 미니멀 서틀 인터랙션 - 이미지 */
         .about-image img:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.02);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-info {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #6a6a6a;
+        }
+
+        .about-info p {
+            margin: 0.3rem 0;
         }
 
         .about-text {
@@ -176,9 +188,10 @@
         }
 
         .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 1.2rem;
+            text-align: justify;
         }
 
         /* Skills 섹션 */
@@ -186,35 +199,31 @@
             background-color: #B8E0D2;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .skill-card {
+        .skill-tag {
             background-color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        /* C1 미니멀 서틀 인터랙션 - 스킬 카드 */
-        .skill-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-        }
-
-        .skill-card h3 {
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
             color: #4a4a4a;
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
+            font-weight: 500;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
         }
 
-        .skill-card p {
-            color: #7a7a7a;
+        /* C1 미니멀 서틀 인터랙션 - 스킬 태그 */
+        .skill-tag:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            background-color: #FFE5EC;
         }
 
         /* Projects 섹션 */
@@ -224,7 +233,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
         }
 
@@ -234,6 +243,8 @@
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         /* C1 미니멀 서틀 인터랙션 - 프로젝트 카드 */
@@ -244,7 +255,7 @@
 
         .project-card img {
             width: 100%;
-            height: 250px;
+            height: 280px;
             object-fit: cover;
             transition: transform 0.3s ease;
         }
@@ -254,18 +265,47 @@
         }
 
         .project-info {
-            padding: 1.5rem;
+            padding: 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-info h3 {
             color: #4a4a4a;
             margin-bottom: 0.8rem;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
         }
 
         .project-info p {
             color: #7a7a7a;
-            line-height: 1.6;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .project-tech {
+            font-size: 0.9rem;
+            color: #999;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background-color: #C7CEEA;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .project-link:hover {
+            background-color: #B8E0D2;
+            transform: translateX(5px);
         }
 
         /* Contact 섹션 */
@@ -274,17 +314,24 @@
             text-align: center;
         }
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
+        .contact-message {
+            font-size: 1.2rem;
+            color: #4a4a4a;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .contact-item {
             background-color: white;
-            padding: 1.5rem 2.5rem;
+            padding: 1.8rem;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease, background-color 0.3s ease;
@@ -296,10 +343,32 @@
             background-color: #FFE5EC;
         }
 
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
         .contact-item a {
             text-decoration: none;
             color: #4a4a4a;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            word-break: break-all;
+        }
+
+        .contact-item a:hover {
+            color: #C7CEEA;
+        }
+
+        .contact-value {
+            color: #4a4a4a;
+            font-size: 1.05rem;
             font-weight: 500;
         }
 
@@ -342,6 +411,23 @@
 
             .about-content {
                 flex-direction: column;
+                align-items: center;
+            }
+
+            .about-text {
+                text-align: center;
+            }
+
+            .about-text p {
+                text-align: justify;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -364,9 +450,14 @@
                 font-size: 2rem;
             }
 
-            .projects-grid,
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .about-image img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .skill-tag {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
             }
         }
 
@@ -392,7 +483,7 @@
     <section id="home" class="hero">
         <h1>김규찬</h1>
         <h2>Kyuchan Kim</h2>
-        <p>작가 김규찬입니다.</p>
+        <p>작가</p>
     </section>
 
     <!-- About Me 섹션 -->
@@ -400,12 +491,19 @@
         <h2>About Me</h2>
         <div class="about-content">
             <div class="about-image">
-                <img src="https://via.placeholder.com/400x500/C7CEEA/4a4a4a?text=Kyuchan+Kim" alt="김규찬 프로필 사진">
+                <img src="images/profile.jpg" alt="김규찬 프로필 사진">
+                <div class="about-info">
+                    <p><strong>김규찬 / Kyuchan Kim</strong></p>
+                    <p>📍 Busan, Korea</p>
+                </div>
             </div>
             <div class="about-text">
-                <p>안녕하세요, 작가 김규찬입니다.</p>
-                <p>저는 일상의 소소한 순간들을 포착하여 독자들에게 감동과 위로를 전하는 글을 쓰고 있습니다. 사람들의 이야기에 귀 기울이며, 그 속에서 보편적인 감정과 진실을 발견하고자 노력합니다.</p>
-                <p>글쓰기를 통해 세상과 소통하고, 독자 여러분과 깊은 유대감을 형성하는 것이 저의 목표입니다. 앞으로도 진솔하고 따뜻한 이야기로 여러분을 찾아뵙겠습니다.</p>
+                <p>안녕하세요 작가 김규찬입니다.</p>
+                <p>꽃은 언제나 아름다움의 상징이며, 피어나는 순간부터 시들어가는 과정까지 인간의 삶을 압축해서 보여준다고 생각했다.</p>
+                <p>꽃봉오리의 설레는 시작, 만개한 꽃의 절정, 그리고 서서히 시들어 말라가는 모습까지 그 모든 과정을 아름답다고 느꼈다.</p>
+                <p>사람이라면 삶을 살다가 좌절을 겪게 되고, "나는 왜 이런 모습일까, 왜 이렇게 보잘것없을까"라는 생각을 한 번쯤은 하게 된다.</p>
+                <p>그러나 비바람을 견뎌 이슬이 맺힌 꽃처럼, 그 순간들 또한 결코 헛되지 않고 모두 아름다운 과정이라 믿는다.</p>
+                <p>그래서 나 자신의 가치를 아름답게 바라보고, 스스로에게 위로를 전하고자 하는 마음으로 그림을 그리는 작가입니다.</p>
             </div>
         </div>
     </section>
@@ -413,23 +511,13 @@
     <!-- Skills 섹션 -->
     <section id="skills" class="skills">
         <h2>Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>✍️ 창작 글쓰기</h3>
-                <p>소설, 에세이, 시 등 다양한 장르의 창작 작업</p>
-            </div>
-            <div class="skill-card">
-                <h3>📚 스토리텔링</h3>
-                <p>독자의 감성을 자극하는 스토리 구성과 전개</p>
-            </div>
-            <div class="skill-card">
-                <h3>🎨 콘텐츠 기획</h3>
-                <p>주제 선정부터 출판까지 전체 과정 관리</p>
-            </div>
-            <div class="skill-card">
-                <h3>💬 커뮤니케이션</h3>
-                <p>독자 및 출판 관계자와의 원활한 소통</p>
-            </div>
+        <div class="skills-container">
+            <div class="skill-tag">UX/UI Design</div>
+            <div class="skill-tag">Design Thinking</div>
+            <div class="skill-tag">Figma, Sketch, Adobe XD</div>
+            <div class="skill-tag">User Research</div>
+            <div class="skill-tag">Prototyping</div>
+            <div class="skill-tag">Team Leadership</div>
         </div>
     </section>
 
@@ -438,31 +526,28 @@
         <h2>Projects</h2>
         <div class="projects-grid">
             <div class="project-card">
-                <img src="https://via.placeholder.com/400x300/FFE5EC/4a4a4a?text=Project+1" alt="프로젝트 1">
+                <img src="images/project1.jpg" alt="작업실 연출">
                 <div class="project-info">
-                    <h3>봄날의 기억</h3>
-                    <p>첫 번째 장편 소설로, 가족의 의미와 화해를 다룬 작품입니다. 따뜻한 감성과 섬세한 묘사로 많은 독자들의 사랑을 받았습니다.</p>
+                    <h3>작업실 연출</h3>
+                    <p>작가의 작업실을 연출하여 작가의 정체성을 강조</p>
+                    <div class="project-tech">미드저니, 파이어 플라이, 캔버스에 유채</div>
+                    <a href="https://example.com" class="project-link" target="_blank">프로젝트 보기 →</a>
                 </div>
             </div>
             <div class="project-card">
-                <img src="https://via.placeholder.com/400x300/B8E0D2/4a4a4a?text=Project+2" alt="프로젝트 2">
+                <img src="images/project2.jpg" alt="두통">
                 <div class="project-info">
-                    <h3>작은 행복 에세이</h3>
-                    <p>일상 속 소소한 행복을 포착한 에세이 모음집입니다. 독자들에게 위로와 공감을 전하는 따뜻한 글들로 구성되어 있습니다.</p>
+                    <h3>두통</h3>
+                    <p>작품에 대한 설명</p>
+                    <div class="project-tech">미드저니, 파이어 플라이, 캔버스에 유채</div>
                 </div>
             </div>
             <div class="project-card">
-                <img src="https://via.placeholder.com/400x300/C7CEEA/4a4a4a?text=Project+3" alt="프로젝트 3">
+                <img src="images/project3.jpg" alt="허공을 만진다">
                 <div class="project-info">
-                    <h3>밤하늘 시 선집</h3>
-                    <p>밤하늘을 주제로 한 시 선집으로, 고독과 위로, 희망의 메시지를 담고 있습니다. 서정적인 언어로 독자들의 마음을 울립니다.</p>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="https://via.placeholder.com/400x300/FFF3E0/4a4a4a?text=Project+4" alt="프로젝트 4">
-                <div class="project-info">
-                    <h3>글쓰기 워크숍</h3>
-                    <p>초보 작가들을 위한 글쓰기 워크숍을 기획하고 진행하였습니다. 창작의 즐거움을 함께 나누는 소중한 시간이었습니다.</p>
+                    <h3>허공을 만진다</h3>
+                    <p>작품 크기 확장 및 연출</p>
+                    <div class="project-tech">미드저니, 파이어 플라이, 캔버스에 유채</div>
                 </div>
             </div>
         </div>
@@ -471,18 +556,22 @@
     <!-- Contact 섹션 -->
     <section id="contact" class="contact">
         <h2>Contact</h2>
-        <div class="contact-info">
+        <p class="contact-message">프로젝트 협업이나 강의 문의는 언제든 환영합니다!</p>
+        <div class="contact-grid">
             <div class="contact-item">
-                <a href="mailto:kyuchan.kim@example.com">📧 kyuchan.kim@example.com</a>
+                <div class="contact-icon">📧</div>
+                <div class="contact-label">Email</div>
+                <a href="mailto:kimkyuchan0881@gmail.com">kimkyuchan0881@gmail.com</a>
             </div>
             <div class="contact-item">
-                <a href="https://instagram.com/kyuchan_writer" target="_blank">📷 Instagram</a>
+                <div class="contact-icon">📱</div>
+                <div class="contact-label">Phone</div>
+                <div class="contact-value">010-7614-0881</div>
             </div>
             <div class="contact-item">
-                <a href="https://blog.example.com/kyuchan" target="_blank">📝 Blog</a>
-            </div>
-            <div class="contact-item">
-                <a href="https://twitter.com/kyuchan_kim" target="_blank">🐦 Twitter</a>
+                <div class="contact-icon">🌐</div>
+                <div class="contact-label">Website</div>
+                <a href="https://example" target="_blank">https://example</a>
             </div>
         </div>
     </section>
